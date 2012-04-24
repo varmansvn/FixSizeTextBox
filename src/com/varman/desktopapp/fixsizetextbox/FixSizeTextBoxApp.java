@@ -13,7 +13,7 @@ import javax.swing.JTextField;
  * @author varman
  */
 public class FixSizeTextBoxApp extends JFrame{
-    private static final int MAX_CHARS_ALLOWED = 10;
+    private static final float MAX_NUMBER_ALLOWED = 100;
     private final JTextField fixSizeTextField;
     
     
@@ -21,14 +21,14 @@ public class FixSizeTextBoxApp extends JFrame{
         
         // create document class for text field
         TextFieldDocument textFieldDoc = new TextFieldDocument();
-        textFieldDoc.setMaxTextLength(MAX_CHARS_ALLOWED);
+        textFieldDoc.setMaxNumber(MAX_NUMBER_ALLOWED);
         
         // create text field, and pass the document to it
         fixSizeTextField = new JTextField();
         fixSizeTextField.setDocument(textFieldDoc);
         
         setLayout(new BorderLayout());
-        add(new JLabel("Allow only " + MAX_CHARS_ALLOWED + " characters"), BorderLayout.NORTH);
+        add(new JLabel("Allow only less than " + MAX_NUMBER_ALLOWED), BorderLayout.NORTH);
         add(fixSizeTextField, BorderLayout.CENTER);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(500, 70);
